@@ -1,0 +1,14 @@
+<div class="col-lg-4">
+    <h2>{{title}}</h2>
+    <ul class="bs-component">
+        <div *ngFor="let gender of peopleGender" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{petTypeToShow}} of {{gender}} owners ({{pets[gender].length}})</h3>
+            </div>
+            <div [ngClass]="gender" class="panel-body">
+                <div *ngFor="let pet of pets[gender]|orderby:'name':true">{{pet.name}}</div>
+                <div *ngIf="!pets[gender].length">No {{petTypeToDisplay}} available under {{gender}} gender</div>
+            </div>
+        </div>
+    </ul>
+</div>
